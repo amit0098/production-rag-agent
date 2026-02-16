@@ -59,4 +59,11 @@ User Query
 ---
 
 ## 📂 Project Structure
-
+├── main.py
+├── rag_pipeline.py
+├── retriever.py
+├── reranker.py
+├── hallucination_checker.py
+├── requirements.txt
+├── Dockerfile
+└── data/
