@@ -67,3 +67,36 @@ User Query
 ├── requirements.txt
 ├── Dockerfile
 └── data/
+
+
+---
+
+## ⚙️ How It Works
+
+### 1. Document Ingestion
+- Documents are chunked into smaller segments.
+- Embeddings are generated using SentenceTransformers.
+- Embeddings are stored in a FAISS index.
+
+### 2. Hybrid Retrieval
+- FAISS retrieves semantically similar chunks.
+- BM25 retrieves keyword-relevant chunks.
+- Results are merged.
+
+### 3. Re-ranking
+- Cross-Encoder re-ranks top results for better precision.
+
+### 4. Response Generation
+- Retrieved context is passed to open-source LLM.
+- LLM generates context-aware answer.
+
+### 5. Hallucination Detection
+- LLM output is evaluated against retrieved context.
+- Response scoring mechanism reduces hallucinated outputs.
+
+---
+
+## 🔌 API Usage (FastAPI)
+
+Example endpoint:
+
